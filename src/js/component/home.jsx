@@ -1,26 +1,38 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
+	const [second,setSecond]=useState(0);
+		const [seconds,setSeconds]=useState(0);
+			const [minutes,setMinutes]=useState(0)
+														let home;
+															useEffect(()=> {
+																home= setInterval(()=> {
+																	setSecond(second+1);
+
+																		if(second === 59){
+																			setSeconds(seconds+1);
+																				setSecond(0);		
+																							 }
+																								}, 1000)
+
+																						return ()=> clearInterval(home);
+																														});
+
+	return ( 
+		<div className="container">
+			<div className= "stopWatch">
+				<div className ="TimerLogo" >
+					<FontAwesomeIcon icon={faClock} />
+						</div>
+							<div className ="minutes"></div>
+								<div className ="seconds">{ seconds<10? "0"+ seconds: seconds }</div>
+									<div className ="second">{second<10? "0"+ second: second }</div>
+										</div>
+											</div>
+		)};
+
 
 export default Home;
