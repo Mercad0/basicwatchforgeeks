@@ -21,6 +21,18 @@ const Home = () => {
 																						return ()=> clearInterval(home);
 																														});
 
+
+																	const restart = () => {
+																		setInterval(0)
+																		setSecond(0)
+																		setSeconds(0)
+																	}					
+																	
+																	const stop = () => {
+																		clearInterval(home)
+																	}
+
+
 	return ( 
 		<div className="container">
 			<div className= "stopWatch">
@@ -29,8 +41,10 @@ const Home = () => {
 						</div>
 							<div className ="minutes"></div>
 								<div className ="seconds">{ seconds<10? "0"+ seconds: seconds }</div>
-									<div className ="second">{second<10? "0"+ second: second }</div>
+									<div className ="second">:{second<10? "0"+ second: second }</div>
 										</div>
+										<button className="restart" onClick={restart}>Restart</button>
+										<button className="stop" onClick={stop}>Stop</button>
 											</div>
 		)};
 
