@@ -2,6 +2,9 @@ body {
     background: purple;
 }
 
+.container {
+    max-width: 400px;
+}
 
 .stopWatch {
     background-color: black;
